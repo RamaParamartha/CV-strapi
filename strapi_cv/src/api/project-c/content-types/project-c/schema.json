@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "project_cs",
+  "info": {
+    "singularName": "project-c",
+    "pluralName": "project-cs",
+    "displayName": "Project c++"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}
