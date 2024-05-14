@@ -788,6 +788,36 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiProfileProfile extends Schema.SingleType {
+  collectionName: 'profiles';
+  info: {
+    singularName: 'profile';
+    pluralName: 'profiles';
+    displayName: 'profile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    desc: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::profile.profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::profile.profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProjectCProjectC extends Schema.SingleType {
   collectionName: 'project_cs';
   info: {
@@ -866,6 +896,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::profile.profile': ApiProfileProfile;
       'api::project-c.project-c': ApiProjectCProjectC;
       'api::project-crud.project-crud': ApiProjectCrudProjectCrud;
     }
